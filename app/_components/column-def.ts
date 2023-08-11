@@ -21,6 +21,7 @@ export const columns = [
         id: "name",
         header: 'Name',
         cell: (row) => row.getValue(),
+        enableColumnFilter: true,
     }),
     columnHelper.accessor('status', {
         id: "status",

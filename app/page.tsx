@@ -1,13 +1,21 @@
 'use client'
 
-import {flexRender, getCoreRowModel, useReactTable} from "@tanstack/react-table";
+import {ColumnFiltersState, flexRender, getCoreRowModel, useReactTable} from "@tanstack/react-table";
 import {columns, data} from "@/app/_components/column-def";
+import {useState} from "react";
 
 export default function Home() {
+    const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
+        []
+    )
+
+    console.log('columnFilters', columnFilters)
+    
     const table = useReactTable({
         data,
         columns,
         getCoreRowModel: getCoreRowModel(),
+        onColumnFiltersChange: setColumnFilters,
     })
 
     return (
